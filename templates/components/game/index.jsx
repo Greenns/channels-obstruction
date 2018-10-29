@@ -5,9 +5,13 @@ import $ from 'jquery'
 
 let current_user = null
 const game = $("#game_component").data("game")
-const game_sock = 'ws://' + window.location.host + "/game/" + game + "/"
+var proto = "ws:"
+if (window.location.protocol === "https:") {
+  proto = "wss:"
+}
+const game_sock = proto + '//' + window.location.host + "/game/" + game + "/"
 
-$.get('http://localhost:8080/current-user/?format=json', function(result){
+$.get('/current-user/?format=json', function(result){
     // gets the current user information from Django
     current_user = result
     render_component()

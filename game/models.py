@@ -81,7 +81,7 @@ class Game(models.Model):
         """
         Gets all of the squares for this Game
         """
-        return GameSquare.objects.filter(game=self)
+        return GameSquare.objects.filter(game=self).order_by('game', 'row', 'col')
 
     def get_game_square(row, col):
         """
@@ -167,6 +167,7 @@ class GameSquare(models.Model):
     # dates
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+
 
     def __unicode__(self):
         return '{0} - ({1}, {2})'.format(self.game, self.col, self.row)

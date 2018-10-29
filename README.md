@@ -40,9 +40,9 @@ This project also uses [React](https://facebook.github.io/react/) to handle the 
 * Create a Python virtual environemnt
 * In that environment, run ```pip install -r requirements.txt``` inside your project
 * Install node modules with ```npm install```
-* Create the local database with ```python manage.py migrate```
-* Run webpack to build the components with ```npm run webpack```
-* Run Django development server on port 8080 - ```python manage.py runserver 8080```
+* Specify Database to use with the DATABASE_URL environment variable
+* Bootstrap database with ```python manage.py migrate```
+* Run Django server on $PORT - ```npm run start```
 
 ## License
 

@@ -32,7 +32,7 @@ class GameBoard extends Component {
 
     // custom methods
     getGame(){
-         const game_url = 'http://localhost:8080/game-from-id/' + this.props.game_id
+         const game_url = '/game-from-id/' + this.props.game_id
          
          this.serverRequest = $.get(game_url, function (result) {
              
@@ -45,7 +45,7 @@ class GameBoard extends Component {
     }
 
     getSquares(){
-         const squares_url = 'http://localhost:8080/game-squares/' + this.props.game_id
+         const squares_url = '/game-squares/' + this.props.game_id
          this.serverRequest = $.get(squares_url, function (result) {
             this.setState({
                 squares: result

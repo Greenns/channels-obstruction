@@ -3,10 +3,14 @@ import LobbyBase from './LobbyBase.jsx'
 import ReactDOM from 'react-dom'
 import $ from 'jquery'
 
-var lobby_sock = 'ws://' + window.location.host + "/lobby/"
+var proto = "ws:"
+if (window.location.protocol === "https:") {
+  proto = "wss:"
+}
+var lobby_sock = proto + '//' + window.location.host + "/lobby/"
 var current_user = null
 
-$.get('http://localhost:8080/current-user/?format=json', function(result){
+$.get('/current-user/?format=json', function(result){
     // gets the current user information from Django
     current_user = result
     render_component()

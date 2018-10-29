@@ -29,7 +29,8 @@
         "webpack-dev-server": "^3.1.9"
     },
     "scripts": {
-        "webpack": "webpack --watch"
+	"start": "python manage.py runserver \"0.0.0.0:$PORT\"",
+        "prestart": "webpack -p"
     },
     "author": "",
     "license": "ISC"
