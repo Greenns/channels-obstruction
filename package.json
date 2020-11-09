@@ -31,7 +31,8 @@
     "scripts": {
         "start": "python manage.py runserver \"0.0.0.0:$PORT\"",
         "prestart": "webpack -p",
-    	"build": "webpack"
+    	"build": "webpack",
+	"heroku-postbuild": "python manage.py migrate"
     },
     "author": "",
     "license": "ISC"
